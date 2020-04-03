@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+   
+
+{% for corrida in corridas %}
+
+
+<div class="row">
+    <div class="col s12 m4 l4">
+        <div class="card-panel hoverable white">
+          <h5>Atividade do dia: {{corrida.data_da_corrida|date:'d-m-Y'}}</h5>
+            <table class="centered">
+                <tbody>
+                <tr>
+                    <td>
+                        <h5>{{corrida.distancia}} Km</h5>
+                        <h6 class="grey-text">Distância</h6>
+                    </td>
+
+                    <td>
+                      <h5>{{corrida.sentimento}}</h5>
+                      <h6 class="grey-text">Sentimento</h6>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+<div class="row">
+    <div class="col s12 m5 right-align">
+        <div class="fixed-action-btn">
+            <!-- Modal Trigger -->
+            <a href="#modal1" class="modal-trigger btn-floating btn-large waves-effect waves-light center-align orange darken-4"><i class="material-icons">add</i></a>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+<div class="modal-content">
+  <div class="row">
+      <form method="POST">
+          {% csrf_token %}
+    <div class="input-field col s12">
+      <label for="distancia">Distância</label>
+      <input type="text" class="validate" name="distancia" id="id_distancia" required />
+    </div>
+    <div class="input-field col s12">
+      <input type="time" step="1" name="tempo" id="hora" placeholder="id_tempo">
+    </div>
+    <div class="input-field col s12">
+        <input type="text" class="datepicker" name="data_da_corrida" id="id_data_da_corrida" placeholder="Data da Corrida" required />
+    </div>
+    <div class="input-field col s12">
+        <input type="text" class="validate" name="sentimento" id="id_sentimento" placeholder="Sentimento" />
+    </div>
+    <div class="input-field col s12">
+        <input type="text" class="validate" name="observacoes" id="id_observacoes" placeholder="Observações" />
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="submit" class="modal-action modal-close btn orange darken-4 waves-effect waves-light">Salvar</button>
+  <a class="modal-action modal-close btn red darken-4 waves-effect waves-light">Cancelar</a>
+  <!--<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>-->
+</div>
+</form>
+</div>
+   
+
+{% endblock main %}

@@ -1,0 +1,36 @@
+{% extends '../base.html' %}
+
+{% block main %}
+
+    <div class="valign-wrapper row login-box">
+        <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
+          <form action="." method="POST">
+              {% csrf_token %}
+            <div class="card-content">
+              <span class="card-title">Crie sua conta</span>
+              <div class="row">
+                {{ form.as_p }}
+                <!--
+                <div class="input-field col s12">
+                  <label for="first_name">Primeiro Nome</label>
+                  <input type="text" class="validate" name="first_name" id="id_first_name" maxlength="30" />
+                </div>
+                <div class="input-field col s12">
+                  <label for="email">Email</label>
+                  <input type="email" class="validate" name="username" id="id_username" />
+                </div>
+                <div class="input-field col s12">
+                  <label for="password">Password </label>
+                  <input type="password" class="validate" name="password" id="id_password" />
+                </div>
+              </div>
+            </div>
+            -->
+            <div class="card-action right-align">
+              <input type="submit" class="btn orange darken-4 waves-effect waves-light" value="Cadastrar-se">
+            </div>
+          </form>
+        </div>
+    </div>
+{% endblock main %}
+    

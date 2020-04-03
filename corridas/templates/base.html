@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>RunnUp::Sua corrida, seu desafio</title>
+
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+<body class="grey lighten-5">
+
+{% if user.is_authenticated %}
+<nav class="orange darken-4">
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Logo</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#!"> <i class="material-icons left">tag_faces</i>Perfil</a></li>
+      <li><a href="{% url 'logout' %}"> <i class="material-icons left">clear</i>Sair</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="#!"> <i class="material-icons left">tag_faces</i>Perfil</a></li>
+      <li><a href="{% url 'logout' %}"> <i class="material-icons left">clear</i>Sair</a></li>
+    </ul>
+  </div>
+</nav>
+{% endif %}
+      
+
+    {% block main %}
+        
+
+    {% endblock main %}
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src=" {% static 'js/materialize.min.js' %}"></script>
+    <script>
+      $(".button-collapse").sideNav();
+
+      //modal
+      $(document).ready(function(){
+      // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+      $('.modal').modal();
+        
+      });
+
+      $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15, // Creates a dropdown of 15 years to control year,
+
+      // Título dos botões de navegação
+      labelMonthNext: 'Próximo Mês',
+      labelMonthPrev: 'Mês Anterior',
+
+      // Meses e dias da semana
+      monthsFull: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+      monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+      weekdaysFull: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+      weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+
+      // Letras da semana
+      weekdaysLetter: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+
+      today: 'Hoje',
+      clear: 'Limpar',
+      close: 'Ok',
+      closeOnSelect: 'false', // Close upon selecting a date,
+      container: 'body', // ex. 'body' will append picker to body
+
+      format: 'dd/mm/yyyy'
+      
+    });
+    </script>
+
+</body>
+</html>
