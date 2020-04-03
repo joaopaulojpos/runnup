@@ -15,6 +15,7 @@ def dashboard(request):
             formu = form.save(commit=False)
             formu.corredor = request.user
             formu.save()
+            messages.success(request, 'Corrida Adicionada com sucesso')
             return redirect('dashboard')
     else:
         form = CorridasForm()
