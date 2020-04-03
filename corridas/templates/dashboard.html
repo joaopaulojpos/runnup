@@ -67,12 +67,20 @@
   </div>
 </div>
 <div class="modal-footer">
-  <button type="submit" class="modal-action modal-close btn orange darken-4 waves-effect waves-light">Salvar</button>
+  <button type="submit" id="btnEnviar" class="modal-action modal-close btn orange darken-4 waves-effect waves-light">Salvar</button>
   <a class="modal-action modal-close btn red darken-4 waves-effect waves-light">Cancelar</a>
   <!--<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>-->
 </div>
 </form>
 </div>
-   
+
+<script>
+  var distancia = document.getElementById("id_distancia");
+  var botao = document.getElementById("btnEnviar");
+  botao.addEventListener('click', function () {
+    dist = distancia.value;
+    distancia.value = dist.replace(",", ".");
+  })
+</script>
 
 {% endblock main %}
