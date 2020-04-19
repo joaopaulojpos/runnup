@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col s12 m4 l4">
-        <div class="card-panel hoverable white">
+        <div class="card-panel card hoverable white">
           <h5>Atividade do dia: {{corrida.data_da_corrida|date:'d-m-Y'}}</h5>
             <table class="centered">
                 <tbody>
@@ -25,6 +25,11 @@
                 </tr>
                 </tbody>
             </table>
+
+            <div class="card-action center-align">
+              <a class="btn orange darken-4 waves-effect waves-light" href="{% url 'run_update' corrida.id %}"><i class="material-icons">create</i> Editar </a>
+            </div>
+
         </div>
     </div>
 </div>
