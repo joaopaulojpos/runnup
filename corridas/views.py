@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.paginator import Paginator
+import datetime
 
 
 @login_required()
@@ -21,7 +22,8 @@ def dashboard(request):
     else:
         form = CorridasForm()
 
-    corridas = Corridas.objects.filter(corredor=request.user)
+    mes = datetime.datetime.now()
+    corridas = Corridas.objects.filter(corredor=request.user, data_da_corrida__month = mes.month).order_by('-data_da_corrida')
     return render(request, 'dashboard.html', {'corridas':corridas, 'form':form})
 
 
