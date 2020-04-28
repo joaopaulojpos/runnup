@@ -29,4 +29,13 @@
 
 </form>
 
+<script>
+  var distancia = document.getElementById("id_distancia");
+  var botao = document.getElementById("btnEnviar");
+  botao.addEventListener('click', function () {
+    dist = distancia.value;
+    distancia.value = dist.replace(",", ".");
+  })	
+</script>
+
 {% endblock main %}
