@@ -29,18 +29,13 @@ def dashboard(request):
 
 def run_update(request, id):
 	corridas = get_object_or_404(Corridas, pk=id)
-
-	if request.method == 'POST':
-		form = CorridasForm(request.POST)
-		if form.is_valid():
-			formu = form.save(commit=False)
-			formu.corredor = request.user
-			formu.save()
-			return redirect('dashboard')
-	else:
-		form = CorridasForm()
-
-	return render(request, 'run_update.html', {'corridas': corridas, 'form':form})
+	form = CorridasForm(request.POST or None, instance=corridas)
+	if form.is_valid():
+		formu = form.save(commit=False)
+		formu.corredor = request.user
+		formu.save()
+		return redirect('dashboard')
+	return render(request,'run_update.html', {'corridas':corridas,'form':form})
 
 
 def register(request):
