@@ -34,20 +34,23 @@
     </div>
 </div>
 
+
 {% endfor %}
 
 <div class="row">
-  <ul class="pagination">
+  <ul class="pagination center-align">
 
     {% if corridas.has_previous  %}
-      <li class="active"><a href="?page={{corridas.previous_page_number}}">Anterior</a></li>
+      <li class="waves-effect"><a href="?page={{corridas.previous_page_number}}"><i class="material-icons">chevron_left</i></a></li>
+      <li class="waves-effect"><a href="?page={{corridas.previous_page_number}}"> {{corridas.previous_page_number}} </a></li>
     {% endif %}
 
-    {{ corridas.number }} de {{ corridas.paginator.num_pages }}
-    
+    <li class="active orange darken-4"><a href="#!"> {{ corridas.number }} </a></li>
+      
     {% if corridas.has_next %}
-            <a href="?page={{ corridas.next_page_number }}">Próxima</a>
-     {% endif %}
+      <li class="waves-effect"> <a href="?page={{ corridas.next_page_number }}"> {{ corridas.next_page_number }} </a></li>
+      <li class="waves-effect"><a href="?page={{ corridas.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+    {% endif %}
 
   </ul>
 </div>
