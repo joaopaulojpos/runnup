@@ -21,17 +21,17 @@
 {% if user.is_authenticated %}
 <nav class="orange darken-4">
   <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">RunnUp</a>
+    <a href="{% url 'dashboard' %}" class="brand-logo">RunnUp</a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><a href="#!"> <i class="material-icons left">tag_faces</i>Perfil</a></li>
       <li><a href="{% url 'logout' %}"> <i class="material-icons left">clear</i>Sair</a></li>
-      <li><a href="{% url 'run_list' %}"> <i class="material-icons left">clear</i>Todas Corridas</a></li>
+      <li><a href="{% url 'run_list' %}"> <i class="material-icons left">directions_run</i>Todas Corridas</a></li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li><a href="#!"> <i class="material-icons left">tag_faces</i>Perfil</a></li>
       <li><a href="{% url 'logout' %}"> <i class="material-icons left">clear</i>Sair</a></li>
-      <li><a href="{% url 'run_list' %}"> <i class="material-icons left">clear</i>Todas Corridas</a></li>
+      <li><a href="{% url 'run_list' %}"> <i class="material-icons left">directions_run</i>Todas Corridas</a></li>
     </ul>
   </div>
 </nav>
