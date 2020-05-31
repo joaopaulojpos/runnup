@@ -42,7 +42,7 @@ def run_update(request, id):
 @login_required()
 def run_list(request):
 	mes = datetime.datetime.now()
-	corridas_list = Corridas.objects.filter(corredor=request.user, data_da_corrida__month = mes.month).order_by('-data_da_corrida')
+	corridas_list = Corridas.objects.filter(corredor=request.user, data_da_corrida__year = mes.year).order_by('-data_da_corrida')
 	paginator = Paginator(corridas_list, 2)
 
 	page = request.GET.get('page')
