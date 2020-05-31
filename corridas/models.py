@@ -15,3 +15,14 @@ class Corridas(models.Model):
 
     def __str__(self):
         return str(self.distancia)
+
+
+class Categoria(models.Model):
+    nome_categoria = models.CharField(max_length=100,null=False, blank=False)
+    distancia_categoria = models.DecimalField(max_digits=6, decimal_places=2)
+    imagem_categoria = models.CharField(max_length=250, null=True, blank=True)
+    corredor_categoria = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return str(self.nome_categoria)
